@@ -1,0 +1,49 @@
+
+<section>
+
+  <h1>ANGULAR FORMS</h1>
+
+  <form
+    [formGroup]="myForm"
+    (submit)="submitForm()"
+    >
+    <div>
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        formControlName="username"
+        />
+        <div 
+        *ngIf="inputHasError('username', 'required')"
+        [ngStyle]="{ fontSize: '8px', color: 'red' }"  
+      >
+        Il campo è obbligatorio
+      </div>
+
+      <div 
+      *ngIf="inputHasError('username', 'minlength')"
+        [ngStyle]="{ fontSize: '8px', color: 'red' }"
+      >
+        Lo username deve avere almeno 5 caratteri.
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        />
+    </div>
+
+    <div>
+      <button 
+        type="submit"
+        >
+        Login
+      </button>
+    </div>
+  </form>
+</section>
